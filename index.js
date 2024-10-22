@@ -18,11 +18,11 @@ const updatedDistanceInKm = initialDistanceInKm + (initialVelocityAsKmPerHour * 
 const remainingFuelInKg = initialFuelInKg - (fuelBurnRateInKg * timeAsSeconds) //calculates remaining fuel
 
 //Pick up an error with how the function below is called and make it robust to such errors
-const calcNewVel = (initialVelocityAsKmPerHour, acceleration, timeAsSeconds) => { 
+const calculateNewVelocity = (initialVelocityAsKmPerHour, acceleration, timeAsSeconds) => { 
   return initialVelocityAsKmPerHour + (acceleration * timeAsSeconds)
 }
 
-const updatedVelocityAsKmPerHour = calcNewVel(initialVelocityAsKmPerHour, acceleration, timeAsSeconds) //calculates new velocity based on acceleration
+const updatedVelocityAsKmPerHour = calculateNewVelocity(initialVelocityAsKmPerHour, acceleration, timeAsSeconds) //calculates new velocity based on acceleration
 
 
 console.log(`Corrected New Velocity: ${updatedVelocityAsKmPerHour} km/h`);
