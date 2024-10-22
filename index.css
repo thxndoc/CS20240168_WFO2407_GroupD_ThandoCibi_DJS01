@@ -1,0 +1,27 @@
+/* Reset some default styles for the page */
+body, p {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+body {
+    background-image: url('mars.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* Center the background image */
+    /* background-attachment: fixed; Optional: Keeps the background fixed */
+    height: 100vh; /* Make the background fill the entire viewport height */
+    overflow: hidden; /* Hide any overflow content */
+    display: flex; /* Use flexbox to center the h1 vertically and horizontally */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Style the h1 element */
+h1 {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: white; /* Change text color to white */
+}
