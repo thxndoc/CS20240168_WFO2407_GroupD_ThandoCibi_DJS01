@@ -18,8 +18,8 @@ const distanceParameters = {
 const calculateNewDistanceInKm = (distanceParameters) => {
   const { initialDistanceInKm, initialVelocityAsKmPerHour, timeAsSeconds } = distanceParameters
   if (isNaN(initialDistanceInKm)) throw new Error ('"initialDistanceInKm" needs to be a number') // check that value of property is not a string
-  if (isNaN(initialVelocityAsKmPerHour)) throw new Error ('"initialDistanceInKm" needs to be a number') // check that value of property is not a string
-  if (isNaN(timeAsSeconds)) throw new Error ('"initialDistanceInKm" needs to be a number') // check that value of property is not a string
+  if (isNaN(initialVelocityAsKmPerHour)) throw new Error ('"initialVelocityAsKmPerHour" needs to be a number') // check that value of property is not a string
+  if (isNaN(timeAsSeconds)) throw new Error ('"timeAsSeconds" needs to be a number') // check that value of property is not a string
 
   return initialDistanceInKm + (initialVelocityAsKmPerHour * timeAsSeconds/3600) //calculates new distance
 }
