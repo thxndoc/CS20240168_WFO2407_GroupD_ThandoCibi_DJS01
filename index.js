@@ -8,26 +8,54 @@
 // Given Parameters
 const MS2_TO_KMH_UNIT_CONVERTER = 12960
 
-const initialVelocityAsKmPerHour = 10000; // velocity (km/h)
-const acceleration = 3; // acceleration (m/s^2)
-const timeAsSeconds = 3600; // seconds (1 hour)
-const initialDistanceInKm = 0; // distance (km)
-const initialFuelInKg = 5000; // remaining fuel (kg)
-const fuelBurnRateInKg = 0.5; // fuel burn rate (kg/s)
+// calculations for new distance
+const distanceParameters = {
+  initialDistanceInKm : 0, // distance (km)
+  initialVelocityAsKmPerHour : 10000, // velocity (km/h)
+  timeAsSeconds : 3600 // seconds (1 hour)
+}
+
+const calculateNewDistanceInKm = (distanceParameters) => {
+  const { initialDistanceInKm, initialVelocityAsKmPerHour, timeAsSeconds } = distanceParameters
+  return initialDistanceInKm + (initialVelocityAsKmPerHour * timeAsSeconds/3600) //calculates new distance
+}
+const updatedDistanceInKm = calculateNewDistanceInKm(distanceParameters)
 
 
-const updatedDistanceInKm = initialDistanceInKm + (initialVelocityAsKmPerHour * timeAsSeconds/3600) //calculates new distance
-const remainingFuelInKg = initialFuelInKg - (fuelBurnRateInKg * timeAsSeconds) //calculates remaining fuel
+// calculations for remaining fuel
+const fuelParameters = {
+  initialFuelInKg : 5000, // remaining fuel (kg)
+  fuelBurnRateInKg : 0.5, // fuel burn rate (kg/s)
+  timeAsSeconds : 3600 // seconds (1 hour)
+}
+const calculateRemainingFuelInKg = (fuelParameters) => {
+  const { initialFuelInKg, fuelBurnRateInKg, timeAsSeconds } = fuelParameters
+
+  return initialFuelInKg - (fuelBurnRateInKg * timeAsSeconds) //calculates remaining fuel
+}
+const remainingFuelInKg = calculateRemainingFuelInKg(fuelParameters)
 
 //Pick up an error with how the function below is called and make it robust to such errors
-const calculateNewVelocity = (initialVelocityAsKmPerHour, acceleration, timeAsSeconds) => { 
+// calculations for new velocity
+const velocityParameters = {
+  initialVelocityAsKmPerHour : 10000, // velocity (km/h)
+  acceleration : 3, // acceleration (m/s^2) 
+  timeAsSeconds : 3600 // seconds (1 hour)
+}
+
+const calculateNewVelocity = (velocityParameters) => { 
+  const { initialVelocityAsKmPerHour, acceleration, timeAsSeconds } = velocityParameters
+
+  if (!initialVelocityAsKmPerHour) throw new Error ('"initialVelocityAsKmPerHour" is required')
+  if (!acceleration) throw new Error ('"acceleration" is required')
+  if (!timeAsSeconds) throw new Error ('"timeAsSeconds" is required')
+
   //convert acceleration from m/s to km/h
   const accelerationAsKmPerHour = acceleration * MS2_TO_KMH_UNIT_CONVERTER
 
   return initialVelocityAsKmPerHour + (accelerationAsKmPerHour * timeAsSeconds/3600)
 }
-
-const updatedVelocityAsKmPerHour = calculateNewVelocity(initialVelocityAsKmPerHour, acceleration, timeAsSeconds) //calculates new velocity based on acceleration
+const updatedVelocityAsKmPerHour = calculateNewVelocity(velocityParameters) //calculates new velocity based on acceleration
 
 
 console.log(`Corrected New Velocity: ${updatedVelocityAsKmPerHour} km/h`);
