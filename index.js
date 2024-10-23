@@ -34,6 +34,10 @@ const fuelParameters = {
 }
 const calculateRemainingFuelInKg = (fuelParameters) => {
   const { initialFuelInKg, fuelBurnRateInKg, timeAsSeconds } = fuelParameters
+  if (isNaN(initialFuelInKg)) throw new Error ('"initialFuelInKg" needs to be a number') // check that value of property is not a string
+  if (isNaN(fuelBurnRateInKg)) throw new Error ('"fuelBurnRateInKg" needs to be a number') // check that value of property is not a string
+  if (isNaN(timeAsSeconds)) throw new Error ('"timeAsSeconds" needs to be a number') // check that value of property is not a string
+
 
   return initialFuelInKg - (fuelBurnRateInKg * timeAsSeconds) //calculates remaining fuel
 }
@@ -50,9 +54,9 @@ const velocityParameters = {
 const calculateNewVelocity = (velocityParameters) => { 
   const { initialVelocityAsKmPerHour, acceleration, timeAsSeconds } = velocityParameters
 
-  if (!initialVelocityAsKmPerHour) throw new Error ('"initialVelocityAsKmPerHour" is required')
-  if (!acceleration) throw new Error ('"acceleration" is required')
-  if (!timeAsSeconds) throw new Error ('"timeAsSeconds" is required')
+  if (isNaN(initialVelocityAsKmPerHour)) throw new Error ('"initialVelocityAsKmPerHour" needs to be a number')
+  if (isNaN(acceleration)) throw new Error ('"acceleration" needs to be a number')
+  if (isNaN(timeAsSeconds)) throw new Error ('"timeAsSeconds" needs to be a number')
 
   //convert acceleration from m/s to km/h
   const accelerationAsKmPerHour = acceleration * MS2_TO_KMH_UNIT_CONVERTER
