@@ -1,4 +1,4 @@
-## Resuorces that helped me:
+## Resources that helped me:
 [Convert m/s^2 to km/h - acceleration](https://mathda.com/convert/acceleration/meter-second-squared-to-km-hour-squared)
 
 ### DJS01: Mars Climate Orbiter Challenge
