@@ -1,3 +1,6 @@
+## Resuorces that helped me:
+[Convert m/s^2 to km/h - acceleration](https://mathda.com/convert/acceleration/meter-second-squared-to-km-hour-squared)
+
 ### DJS01: Mars Climate Orbiter Challenge
 
 The Mars Climate Orbiter incident in 1999 is a stark reminder of the importance of precision in space missions, highlighting how a simple unit mismatch led to the loss of the spacecraft. This challenge seeks to simulate similar challenges in a spacecraft navigation system, emphasising the need for accuracy in calculations.
